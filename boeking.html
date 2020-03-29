@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="nl">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <style>
+      ul {
+        list-style: none;
+      }
+      li {
+        margin-top: 10px;
+      }
+    </style>
+    <script>
+      function rangeInput(value) {
+        document.getElementById("totaal").innerHTML = value;
+      }
+    </script>
+    <title>Boekings Pagina</title>
+  </head>
+  <body>
+    <article>
+      <main>
+        <h1>Accomodatie boeken</h1>
+        <p>
+          Op deze pagina kunt u een kamer in ons hotel boeken en nog een aantal
+          foto's en een filmpje bekijken.
+        </p>
+
+        <h2>Adresgegevens</h2>
+
+        <form id="boeking">
+          <ul>
+            <li>
+              <label for="naam">* Naam: </label>
+              <input id="naam" type="text" name="naam" required />
+            </li>
+            <li>
+              <label for="adres">* Adres: </label>
+              <input id="adres" type="text" name="adres" required />
+            </li>
+            <li>
+              <label for="postcode">* Postcode: </label>
+              <input
+                id="postcode"
+                type="text"
+                name="postcode"
+                pattern="[0-9]{4}\s[A-Z]{}"
+                title="Een postcode bestaat uit 4 cijfers, 1 spatie en 2 letters"
+                placeholder="1234 AB"
+                required
+              />
+            </li>
+            <li>
+              <label for="woonplaats">* Woonplaats: </label>
+              <input id="woonplaats" type="text" name="woonplaats" required />
+            </li>
+            <li>
+              <label for="telefoonnummer">* Telefoonnummer: </label>
+              <input
+                type="number"
+                name="telefoonnummer"
+                id="telefoonnummer"
+                max="10"
+                required
+              />
+            </li>
+            <li>
+              <label for="email">* E-mail: </label>
+              <input type="email" name="email" id="email" required />
+            </li>
+          </ul>
+        </form>
+        <p><small>* = verplicht</small></p>
+
+        <h2>Reservering</h2>
+        <ul>
+          <li>
+            <label for="personen">* Aantal personen </label>
+            <input
+              form="boeking"
+              type="number"
+              name="personen"
+              id="personen"
+              min="1"
+              max="10"
+              required
+            />
+          </li>
+          <li>
+            <label for="aankomst">* Aankomst datum: </label>
+            <input
+              form="boeking"
+              type="date"
+              name="aankomst"
+              id="aankomst"
+              required
+            />
+          </li>
+          <li>
+            <label for="verblijfsduur">Verblijfsduur</label>
+            <input
+              type="range"
+              min="2"
+              max="20"
+              step="2"
+              value="2"
+              form="boeking"
+              name="verblijfsduur"
+              id="verblijfsduur"
+              onchange="rangeInput(this.value);"
+            />
+            <p style="display: inline;">
+              Aantal dagen: <span id="totaal">2</span>
+            </p>
+          </li>
+          <li>
+            <label for="verzorging">Verzorging: </label>
+            <select form="boeking" name="verzorgin" id="verzorging">
+              <option value="logies">Logies</option>
+              <option value="logies-ontbijt">Logies met ontbijt</option>
+              <option value="halfpension">Halfpension</option>
+              <option value="volpension">Volpension</option>
+            </select>
+          </li>
+          <li>
+            <label>Annulereingsverzekering: </label>
+            <label for="ja"
+              ><input
+                form="boeking"
+                type="radio"
+                name="verzekering"
+                id="ja"
+                value="ja"
+              />Ja</label
+            >
+            <label for="nee"
+              ><input
+                form="boeking"
+                type="radio"
+                name="verzekering"
+                id="nee"
+                value="nee"
+              />Nee</label
+            >
+          </li>
+          <li>
+            <label for="opmerking">Heeft u nog opmerkingen?</label><br />
+            <textarea
+              form="boeking"
+              name="opmerking"
+              id="opmerking"
+              cols="30"
+              rows="10"
+            ></textarea>
+          </li>
+        </ul>
+
+        <p><small>* = verplicht</small></p>
+
+      <h2 id="meer-fotos">Foto's</h2>
+
+      <h2>Video</h2>
+      
+    </article>
+  </main>
+  </body>
+</html>
