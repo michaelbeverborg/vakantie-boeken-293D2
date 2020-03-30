@@ -10,17 +10,22 @@
       li {
         margin-top: 10px;
       }
+      img {
+        width: 500px;
+      }
     </style>
+
     <script>
       function rangeInput(value) {
         document.getElementById("totaal").innerHTML = value;
       }
     </script>
+
     <title>Boekings Pagina</title>
   </head>
   <body>
-    <article>
-      <main>
+    <main>
+      <article>
         <h1>Accomodatie boeken</h1>
         <p>
           Op deze pagina kunt u een kamer in ons hotel boeken en nog een aantal
@@ -29,7 +34,11 @@
 
         <h2>Adresgegevens</h2>
 
-        <form id="boeking">
+        <form
+          id="boeking"
+          action="http://jkorpela.fi/cgi-bin/echo.cgi"
+          method="POST"
+        >
           <ul>
             <li>
               <label for="naam">* Naam: </label>
@@ -61,7 +70,6 @@
                 type="number"
                 name="telefoonnummer"
                 id="telefoonnummer"
-                max="10"
                 required
               />
             </li>
@@ -150,19 +158,44 @@
               form="boeking"
               name="opmerking"
               id="opmerking"
-              cols="30"
-              rows="10"
+              cols="40"
+              rows="20"
             ></textarea>
+          </li>
+          <li>
+            <input type="submit" form="boeking" value="Reserveer" />
           </li>
         </ul>
 
         <p><small>* = verplicht</small></p>
 
-      <h2 id="meer-fotos">Foto's</h2>
+        <h2 id="meer-fotos">Foto's</h2>
+        <figure>
+          <img src="./img/hotel-kamer.jpg" alt="Hotel kamer budget" />
+          <figcaption>Hotel kamer budget</figcaption>
+        </figure>
+        <figure>
+          <img src="./img/hotel-kamer2.jpg" alt="Hotel kamer deluxe" />
+          <figcaption>Hotel kamer deluxe</figcaption>
+        </figure>
+        <figure>
+          <img src="./img/hotel-uitzicht.jpg" alt="Uitzicht op zee" />
+          <figcaption>Uitzicht op zee</figcaption>
+        </figure>
+        <figure>
+          <img src="./img/hotel-zwembad.jpg" alt="Het zwembad" />
+          <figcaption>Het zwembad</figcaption>
+        </figure>
 
-      <h2>Video</h2>
-      
-    </article>
-  </main>
+        <h2>Video</h2>
+        <video controls>
+          <source src="./video/spanje-video.mp4" type="video/mp4" />
+          <source src="./video/spanje-video.ogv" type="video/ogv" />
+          <source src="./video/spanje-video.webm" type="video/webm" />
+          Uw browser kan de video niet afspelen. Het advies is om uw browser te
+          upgraden.
+        </video>
+      </article>
+    </main>
   </body>
 </html>
